@@ -4,9 +4,25 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+#include "FrameCounter.h"
+
 using namespace glm;
 
 const int glut_profile = GLUT_COMPATIBILITY_PROFILE;
+
+bool toggle_accurateFPS = false;
+
+// Display Function
+void DisplayFunc(void)
+{
+	DrawFPS();
+}
+
+// Idle Function
+void IdleFunc(void)
+{
+	FrameCounter(toggle_accurateFPS);
+}
 
 int main(int argc, char **argv)
 {
@@ -32,6 +48,9 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Failed to initialize GLEW\n");
 		return 0;
 	}
+
+	glutDisplayFunc(DisplayFunc);
+	glutIdleFunc(IdleFunc);
 
 	glutMainLoop();
 
