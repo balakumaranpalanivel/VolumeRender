@@ -23,6 +23,7 @@ protected:
 	glm::vec3 scaleWorldToGrid;
 	glm::vec3 maxGridPos;
 
+	float mIsoValue, mMinIsoValue, mMaxIsoValue;
 
 public:
 
@@ -97,4 +98,42 @@ public:
 	{
 		return mTextureId;
 	}
+
+	glm::ivec3 GetVoxelsPerCell()
+	{
+		return mVoxelsPerCell;
+	}
+
+	glm::vec3 GetMaxGridPos()
+	{
+		return maxGridPos;
+	}
+
+	int GetMaxVolumeDimension()
+	{
+		return mMaxVolumeDimension;
+	}
+
+	float GetIsoValue()
+	{
+		return mIsoValue;
+	}
+
+	float UpdateIsoValue(float delta)
+	{
+		mIsoValue += delta;
+		mIsoValue = glm::clamp(mIsoValue, mMinIsoValue, mMaxIsoValue);
+		return mIsoValue;
+	}
+
+	glm::vec3 GetScaleWorldToGrid()
+	{
+		return scaleWorldToGrid;
+	}
+
+	glm::vec3 GetScaleWorldToVoltex()
+	{
+		return scaleWorldToVoltex;
+	}
+
 };

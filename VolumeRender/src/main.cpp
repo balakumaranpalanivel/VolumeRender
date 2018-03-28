@@ -12,10 +12,28 @@ const int glut_profile = GLUT_COMPATIBILITY_PROFILE;
 
 bool toggle_accurateFPS = false;
 
+// Volume Types
+enum Dataset {BALLS};
+GLfloat backgroundGray = 0.3f;
+
 // Display Function
 void DisplayFunc(void)
 {
 	DrawFPS();
+
+	glClearColor(1.f, 1.f, 1.f, 0);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendEquation(GL_MIN);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClearColor(backgroundGray, backgroundGray, backgroundGray, 1);
+	glClearDepth(1);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 }
 
 // Idle Function

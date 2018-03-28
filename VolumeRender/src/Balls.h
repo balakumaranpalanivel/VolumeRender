@@ -25,6 +25,10 @@ public:
 	{
 		std::cout << "Start: LoadVolume: Balls" << std::endl;
 
+		mIsoValue = 0.9375f;
+		mMinIsoValue = 0;
+		mMaxIsoValue = 1;
+
 		CVolume::mTextureId = CVolume::Generate3DTexture(GL_TEXTURE0, GL_LINEAR);
 		glTexStorage3D(GL_TEXTURE_3D, 1, GL_R8,
 			CVolume::mVolumeDimension.x,
