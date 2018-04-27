@@ -4,7 +4,7 @@ Volume Rendering with Empty Space Skipping
 
 ## Features
 
-* Coming Soon
+* Multiple Datasets rendered
 
 ### Demo
 
